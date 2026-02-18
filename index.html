@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رمضان كريم — تهانٍ وأدعية</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #EDD98A;
+    --gold-dark: #8B6914;
+    --navy: #0B1530;
+    --navy2: #111E3D;
+    --midnight: #07101F;
+    --text: #F5EDD8;
+    --text-dim: rgba(245,237,216,0.52);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--midnight);font-family:'Noto Naskh Arabic',serif;color:var(--text);direction:rtl;overflow-x:hidden;}
+
+  #stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
+  .s{position:absolute;border-radius:50%;background:#fff;animation:tw var(--d,3s) ease-in-out infinite alternate;}
+  @keyframes tw{from{opacity:.08;transform:scale(.7)}to{opacity:.95;transform:scale(1.3)}}
+
+  .hero{
+    position:relative;z-index:1;
+    min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:40px 20px 100px;overflow:hidden;
+    background:radial-gradient(ellipse at 50% -10%,#1A3070 0%,#0B1530 45%,var(--midnight) 100%);
+  }
+
+  .lanterns{display:flex;align-items:flex-start;justify-content:center;gap:45px;margin-bottom:20px;}
+  .lantern{animation:sw var(--sw,4s) ease-in-out infinite;transform-origin:top center;}
+  .lantern:nth-child(1){--sw:4.2s;}
+  .lantern:nth-child(2){--sw:5.1s;animation-delay:-1.7s;}
+  .lantern:nth-child(3){--sw:3.7s;animation-delay:-3.1s;}
+  @keyframes sw{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
+  .lantern svg{width:58px;height:90px;}
+
+  .moon-wrap{position:relative;width:210px;height:210px;margin-bottom:18px;animation:fl 7s ease-in-out infinite;}
+  @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+  .moon{position:absolute;width:190px;height:190px;border-radius:50%;
+    background:conic-gradient(from 200deg,#8B6914,#E8C97A 40%,#C9A84C 60%,#8B6914 100%);
+    box-shadow:0 0 50px rgba(201,168,76,.65),0 0 100px rgba(201,168,76,.3),0 0 160px rgba(201,168,76,.12),inset -25px -8px 35px rgba(0,0,0,.45);
+    top:10px;left:10px;}
+  .moon-mask{position:absolute;width:155px;height:155px;border-radius:50%;
+    background:radial-gradient(circle at 40% 40%,#0B1530,#07101F);top:8px;left:42px;}
+  .moon-star{position:absolute;top:52px;left:28px;font-size:30px;color:var(--gold-light);
+    filter:drop-shadow(0 0 10px var(--gold));animation:sp 2.5s ease-in-out infinite alternate;}
+  @keyframes sp{from{opacity:.6;transform:scale(.85)}to{opacity:1;transform:scale(1.15)}}
+
+  .hero-title{
+    font-family:'Amiri',serif;
+    font-size:clamp(3.2rem,9vw,6.5rem);font-weight:700;text-align:center;
+    background:linear-gradient(180deg,var(--gold-light) 0%,var(--gold) 55%,#8B6914 100%);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    filter:drop-shadow(0 0 25px rgba(201,168,76,.45));
+    line-height:1.25;margin-bottom:10px;
+  }
+  .hero-sub{font-family:'Amiri',serif;font-size:clamp(1.1rem,2.5vw,1.6rem);color:var(--gold-light);text-align:center;opacity:.82;margin-bottom:35px;}
+
+  .divider{display:flex;align-items:center;gap:14px;margin:0 auto 45px;width:85%;max-width:620px;}
+  .dline{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .dorn{color:var(--gold);font-size:1.4rem;filter:drop-shadow(0 0 5px var(--gold));}
+
+  .arrival-banner{
+    position:relative;z-index:2;
+    max-width:860px;margin:0 auto;
+    background:linear-gradient(145deg,rgba(20,35,75,.96),rgba(11,21,48,.98));
+    border:1px solid rgba(201,168,76,.4);border-radius:20px;
+    padding:45px 50px;overflow:hidden;
+    box-shadow:0 0 60px rgba(201,168,76,.07);
+  }
+  .arrival-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(201,168,76,.06),transparent 70%);pointer-events:none;}
+  .arrival-banner::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold),transparent);}
+  .banner-icon{text-align:center;font-size:2.6rem;margin-bottom:14px;filter:drop-shadow(0 0 12px var(--gold));}
+  .banner-title{font-family:'Amiri',serif;font-size:clamp(1.4rem,3.5vw,2rem);color:var(--gold-light);text-align:center;margin-bottom:22px;font-weight:700;}
+  .dua-text{font-family:'Amiri',serif;font-size:clamp(1.05rem,2.2vw,1.4rem);line-height:2.3;text-align:center;color:var(--text);}
+  .dua-text em{color:var(--gold-light);font-style:normal;}
+
+  .mosque-hero{position:absolute;bottom:0;left:0;right:0;width:100%;opacity:.28;pointer-events:none;}
+
+  .cat-nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(7,16,31,.97);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(201,168,76,.18);
+    padding:0 10px;
+  }
+  .nav-inner{display:flex;align-items:center;gap:5px;padding:11px 5px;overflow-x:auto;scrollbar-width:none;justify-content:center;flex-wrap:wrap;}
+  .nav-inner::-webkit-scrollbar{display:none;}
+  .nav-btn{
+    background:transparent;border:1px solid rgba(201,168,76,.22);border-radius:50px;
+    padding:9px 18px;color:var(--text-dim);
+    font-family:'Noto Naskh Arabic',serif;font-size:.93rem;
+    cursor:pointer;transition:all .3s;white-space:nowrap;
+  }
+  .nav-btn:hover{border-color:var(--gold);color:var(--gold-light);}
+  .nav-btn.active{background:linear-gradient(135deg,rgba(201,168,76,.17),rgba(201,168,76,.07));border-color:var(--gold);color:var(--gold-light);box-shadow:0 0 14px rgba(201,168,76,.12);}
+
+  .content{position:relative;z-index:2;padding:60px 20px 100px;}
+
+  .cat-panel{display:none;}
+  .cat-panel.active{display:block;}
+
+  .cat-header{text-align:center;margin-bottom:48px;animation:fadeUp .6s ease-out both;}
+  .cat-icon{font-size:3.5rem;display:block;margin-bottom:12px;filter:drop-shadow(0 0 14px var(--gold));}
+  .cat-title{
+    font-family:'Amiri',serif;
+    font-size:clamp(1.8rem,4vw,2.8rem);
+    background:linear-gradient(180deg,var(--gold-light),var(--gold));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    margin-bottom:8px;
+  }
+  .cat-desc{color:var(--text-dim);font-size:1.03rem;}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:26px;max-width:1200px;margin:0 auto 55px;}
+  .card{
+    background:linear-gradient(145deg,rgba(17,30,61,.95),rgba(11,21,48,.98));
+    border:1px solid rgba(201,168,76,.2);border-radius:18px;
+    padding:32px 28px;position:relative;overflow:hidden;
+    transition:transform .4s ease,box-shadow .4s ease;
+    animation:fadeUp .7s ease-out both;
+  }
+  .card:nth-child(1){animation-delay:.05s}.card:nth-child(2){animation-delay:.12s}.card:nth-child(3){animation-delay:.19s}
+  .card:nth-child(4){animation-delay:.26s}.card:nth-child(5){animation-delay:.33s}.card:nth-child(6){animation-delay:.4s}
+  .card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top left,rgba(201,168,76,.07),transparent 65%);pointer-events:none;}
+  .card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--card-accent,var(--gold)),transparent);border-radius:18px 18px 0 0;}
+  .card:hover{transform:translateY(-9px);box-shadow:0 22px 55px rgba(201,168,76,.13),0 0 0 1px rgba(201,168,76,.42);}
+  .card-orn{font-size:2rem;margin-bottom:14px;display:block;filter:drop-shadow(0 0 8px var(--gold));}
+  .card-name{font-family:'Amiri',serif;font-size:1.5rem;font-weight:700;color:var(--gold-light);margin-bottom:4px;}
+  .card-sub{font-size:.87rem;color:var(--text-dim);margin-bottom:18px;font-style:italic;}
+  .card-greeting{font-family:'Amiri',serif;font-size:1.1rem;line-height:2.1;color:var(--text);border-top:1px solid rgba(201,168,76,.18);padding-top:16px;margin-bottom:16px;}
+  .card-dua{font-family:'Amiri',serif;font-size:1.02rem;line-height:2;color:rgba(201,168,76,.88);background:rgba(201,168,76,.07);border-right:3px solid var(--card-accent,var(--gold));padding:13px 15px;border-radius:0 8px 8px 0;font-style:italic;}
+
+  .shared-dua{max-width:780px;margin:0 auto 55px;background:linear-gradient(145deg,rgba(14,74,47,.35),rgba(11,21,48,.95));border:1px solid rgba(201,168,76,.28);border-radius:16px;padding:32px 38px;text-align:center;position:relative;overflow:hidden;}
+  .shared-dua::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#4CAF90,var(--gold),transparent);}
+  .shared-dua-title{font-family:'Amiri',serif;font-size:1.35rem;color:var(--gold-light);margin-bottom:16px;}
+  .shared-dua-text{font-family:'Amiri',serif;font-size:1.13rem;line-height:2.2;color:var(--text);}
+
+
+
+  .geo{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.022;background-image:repeating-linear-gradient(60deg,var(--gold) 0,var(--gold) 1px,transparent 1px,transparent 28px),repeating-linear-gradient(-60deg,var(--gold) 0,var(--gold) 1px,transparent 1px,transparent 28px);}
+
+  footer{position:relative;z-index:2;text-align:center;padding:38px 20px 48px;border-top:1px solid rgba(201,168,76,.1);color:var(--text-dim);font-family:'Amiri',serif;}
+  footer .orn{font-size:1.8rem;color:rgba(201,168,76,.3);margin-bottom:11px;display:block;}
+
+  @media(max-width:640px){
+    .arrival-banner{padding:28px 20px;}
+    .add-section{padding:32px 20px;}
+    .cards{grid-template-columns:1fr;}
+    .lanterns{gap:18px;}
+    .lantern svg{width:42px;height:66px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="geo"></div>
+<div id="stars"></div>
+
+<section class="hero">
+
+  <div class="lanterns">
+    <div class="lantern">
+      <svg viewBox="0 0 55 88"><defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0%" stop-color="#5C3A0E"/><stop offset="35%" stop-color="#C9A84C"/><stop offset="65%" stop-color="#EDD98A"/><stop offset="100%" stop-color="#5C3A0E"/></linearGradient></defs>
+        <line x1="27" y1="0" x2="27" y2="10" stroke="#C9A84C" stroke-width="1.5"/>
+        <rect x="7" y="10" width="41" height="5" rx="2.5" fill="#C9A84C"/>
+        <path d="M13,15 Q27,11 42,15 L39,65 Q27,69 16,65 Z" fill="url(#g1)"/>
+        <ellipse cx="27" cy="40" rx="12" ry="16" fill="#FFE080" opacity=".2"/>
+        <line x1="13" y1="33" x2="42" y2="33" stroke="#C9A84C" stroke-width=".7" opacity=".55"/>
+        <line x1="14" y1="48" x2="41" y2="48" stroke="#C9A84C" stroke-width=".7" opacity=".55"/>
+        <path d="M16,65 Q27,69 39,65 L36,73 Q27,75 19,73 Z" fill="#C9A84C"/>
+        <line x1="27" y1="73" x2="27" y2="84" stroke="#C9A84C" stroke-width="1.5"/>
+        <ellipse cx="27" cy="84" rx="5" ry="3" fill="#C9A84C" opacity=".6"/>
+      </svg>
+    </div>  
+    <div class="moon-wrap">
+      <div class="moon"></div>
+      <div class="moon-mask"></div>
+      <div class="moon-star">✦</div>
+    </div>
+
+    <div class="lantern">
+      <svg viewBox="0 0 55 88"><defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0%" stop-color="#3A0E1E"/><stop offset="35%" stop-color="#7A2040"/><stop offset="65%" stop-color="#C9A84C"/><stop offset="100%" stop-color="#3A0E1E"/></linearGradient></defs>
+        <line x1="27" y1="0" x2="27" y2="10" stroke="#C9A84C" stroke-width="1.5"/>
+        <rect x="7" y="10" width="41" height="5" rx="2.5" fill="#C9A84C"/>
+        <path d="M13,15 Q27,11 42,15 L39,65 Q27,69 16,65 Z" fill="url(#g2)"/>
+        <ellipse cx="27" cy="40" rx="12" ry="16" fill="#FF8080" opacity=".14"/>
+        <line x1="13" y1="33" x2="42" y2="33" stroke="#C9A84C" stroke-width=".7" opacity=".55"/>
+        <line x1="14" y1="48" x2="41" y2="48" stroke="#C9A84C" stroke-width=".7" opacity=".55"/>
+        <path d="M16,65 Q27,69 39,65 L36,73 Q27,75 19,73 Z" fill="#7A2040"/>
+        <line x1="27" y1="73" x2="27" y2="84" stroke="#C9A84C" stroke-width="1.5"/>
+        <ellipse cx="27" cy="84" rx="5" ry="3" fill="#7A2040" opacity=".6"/>
+      </svg>
+    </div>
+  </div>
+
+  <h1 class="hero-title">رمضان كريم</h1>
+  <p class="hero-sub">تهانٍ وأدعية من القلب — لكلّ غالٍ وعزيز</p>
+
+  <div class="divider">
+    <div class="dline"></div>
+    <div class="dorn">✦ ❁ ✦</div>
+    <div class="dline"></div>
+  </div>
+
+  <div class="arrival-banner">
+    <div class="banner-icon">🌙</div>
+    <div class="banner-title">دعاء استقبال شهر رمضان المبارك</div>
+    <div class="dua-text">
+      <em>«اللهم أهلّه علينا بالأمن والإيمان، والسلامة والإسلام، والتوفيق لما تحبّ وترضى»</em>
+      <br><br>
+      اللهم بلّغنا رمضان وأنت راضٍ عنّا، واجعل صيامنا صياماً حقيقياً، وقيامنا قياماً مقبولاً.
+      اللهم مَنّ علينا باليُسر والعافية، وأعِنّا على الصيام والقيام وتلاوة القرآن الكريم.
+      اللهم اجعل هذا الشهر المبارك بداية خيرٍ وبركةٍ لنا ولأحبّتنا جميعاً في كلّ مكان.
+    </div>
+  </div>
+
+  <svg class="mosque-hero" viewBox="0 0 1440 220" fill="none" preserveAspectRatio="xMidYMax meet">
+    <rect x="0" y="190" width="1440" height="30" fill="#0B1530"/>
+    <rect x="90" y="80" width="26" height="110" fill="#111E3D"/><polygon points="103,55 90,80 116,80" fill="#C9A84C"/><circle cx="103" cy="50" r="4" fill="#C9A84C"/>
+    <rect x="1324" y="80" width="26" height="110" fill="#111E3D"/><polygon points="1337,55 1324,80 1350,80" fill="#C9A84C"/><circle cx="1337" cy="50" r="4" fill="#C9A84C"/>
+    <ellipse cx="720" cy="100" rx="185" ry="90" fill="#111E3D"/>
+    <rect x="535" y="100" width="370" height="90" fill="#111E3D"/>
+    <ellipse cx="400" cy="148" rx="95" ry="55" fill="#111E3D"/><rect x="305" y="148" width="190" height="55" fill="#111E3D"/>
+    <ellipse cx="1040" cy="148" rx="95" ry="55" fill="#111E3D"/><rect x="945" y="148" width="190" height="55" fill="#111E3D"/>
+    <path d="M680,190 Q720,155 760,190 Z" fill="rgba(201,168,76,0.1)"/>
+  </svg>
+</section>
+
+<nav class="cat-nav" id="catNav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showCat('parents')" data-cat="parents">❤️ الوالدان</button>
+    <button class="nav-btn" onclick="showCat('siblings')" data-cat="siblings">🌟 الإخوة والأخوات</button>
+    <button class="nav-btn" onclick="showCat('family-close')" data-cat="family-close">🏠 الأقارب القريبون</button>
+    <button class="nav-btn" onclick="showCat('family-far')" data-cat="family-far">🌿 الأقارب البعيدون</button>
+    <button class="nav-btn" onclick="showCat('friends')" data-cat="friends">🤝 الأصدقاء</button>
+    <button class="nav-btn" onclick="showCat('classmates')" data-cat="classmates">📚 زملاء الدراسة</button>
+    <button class="nav-btn" onclick="showCat('teachers')" data-cat="teachers">🎓 المعلّمون</button>
+    <button class="nav-btn" onclick="showCat('neighbors')" data-cat="neighbors">🕌 الجيران</button>
+  </div>
+</nav>
+
+<section class="content">
+  <div class="cat-panel active" id="panel-parents">
+    <div class="cat-header">
+      <span class="cat-icon">❤️</span>
+      <div class="cat-title">الوالدان الكريمان</div>
+      <div class="cat-desc">أحبّ الناس وأغلاهم على القلب</div>
+    </div>
+    <div class="cards">
+      <div class="card" style="--card-accent:#E87A6A">
+        <span class="card-orn">🌙</span>
+        <div class="card-name">أبي الحبيب</div>
+        <div class="card-sub">قدوتي ومعلّمي الأوّل</div>
+        <div class="card-greeting">يا أغلى ما في الوجود، رمضان كريم على قلبك الطيّب الذي لا يعرف إلا العطاء والتضحية. أنت سرّ قوّتي وملاذي، وفي كلّ شهر رمضان أزداد اعتزازاً بك.</div>
+        <div class="card-dua">اللهم أطِل في عمر أبي وبارك له في صحّته وعافيته، وأثِبه على كلّ تعبٍ تحمّله من أجلنا، واجعله في أعلى الجنان.</div>
+      </div>
+      <div class="card" style="--card-accent:#E87A6A">
+        <span class="card-orn">🌸</span>
+        <div class="card-name">أمّي الغالية</div>
+        <div class="card-sub">جنّتي في الدنيا</div>
+        <div class="card-greeting">يا من تحملين الدنيا في قلبك ولا تشكين، رمضان كريم على يديك اللتين لا تكفّان عن الدعاء لنا. أنتِ أجمل هديّةٍ منحها الله لي في هذه الحياة.</div>
+        <div class="card-dua">اللهم اجزِ أمّي خيرَ الجزاء، وأدِم عليها الصحة والسعادة، وأكرمها في الدنيا والآخرة كما أكرمتني وحنَت عليّ.</div>
+      </div>
+      <div class="card" style="--card-accent:#E87A6A">
+        <span class="card-orn">✨</span>
+        <div class="card-name">أبي وأمّي معاً</div>
+        <div class="card-sub">سرّ السعادة في حياتي</div>
+        <div class="card-greeting">أنتما الشمس والقمر في سماء حياتي. كلّ رمضان يذكّرني بكم وبدعواتكم التي لا تنقطع. رمضان كريم يا أحبّ الناس إلى قلبي.</div>
+        <div class="card-dua">اللهم اجمعنا في الجنّة كما جمعتنا في الدنيا، واكتب لوالديّ المغفرةَ والرحمة وأعلى الدرجات.</div>
+      </div>
+    </div>
+    <div class="shared-dua">
+      <div class="shared-dua-title">🤲 دعاء قرآني للوالدين</div>
+      <div class="shared-dua-text">«رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَلِمَن دَخَلَ بَيْتِيَ مُؤْمِنًا وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ»</div>
+    </div>
+  </div>
+
+  <div class="cat-panel" id="panel-siblings">
+    <div class="cat-header">
+      <span class="cat-icon">🌟</span>
+      <div class="cat-title">الإخوة والأخوات</div>
+      <div class="cat-desc">رفاق العمر وشركاء الذكريات الجميلة</div>
+    </div>
+    <div class="cards">
+      <div class="card" style="--card-accent:#C9A84C">
+        <span class="card-orn">⭐</span>
+        <div class="card-name">أخي العزيز</div>
+        <div class="card-sub">رفيق الطفولة وسند الشباب</div>
+        <div class="card-greeting">يا من شاركتني كلّ شيء منذ الصغر، رمضان كريم عليك يا أغلى إخوتي. لا يكتمل فرح الشهر إلا بوجودك وضحكتك.</div>
+        <div class="card-dua">اللهم وفّق أخي في كلّ خطواته، وارزقه الصحة والتوفيق، واجعل هذا الشهر بداية خيرٍ وبركة في مسيرته.</div>
+      </div>
+      <div class="card" style="--card-accent:#C9A84C">
+        <span class="card-orn">🌸</span>
+        <div class="card-name">أختي الحبيبة</div>
+        <div class="card-sub">صديقتي الأولى وسرّي الأمين</div>
+        <div class="card-greeting">يا من لا تُقدَّر بثمن، كلّ رمضان تُذكّرني بروح المنزل الجميلة. رمضان كريم عليكِ يا أجمل أخواتي وأحلاهن.</div>
+        <div class="card-dua">اللهم احفظي أختي وأسعدها في الدنيا والآخرة، وارزقها كلّ ما تتمنّاه في هذا الشهر الكريم.</div>
+      </div>
+      <div class="card" style="--card-accent:#C9A84C">
+        <span class="card-orn">🌙</span>
+        <div class="card-name">إخوتي جميعاً</div>
+        <div class="card-sub">من لهم نصيبٌ دائم في قلبي</div>
+        <div class="card-greeting">منذ نشأنا تحت سقفٍ واحد حتى تفرّقنا في دروب الحياة، أنتم دائماً في الروح والفكر. رمضان كريم يا حبايبي.</div>
+        <div class="card-dua">اللهم اجمعنا على الخير وصِلة الرحم في الدنيا، وعلى حوض النبيّ ﷺ في الآخرة.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cat-panel" id="panel-family-close">
+    <div class="cat-header">
+      <span class="cat-icon">🏠</span>
+      <div class="cat-title">الأقارب القريبون</div>
+      <div class="cat-desc">الجدّ والجدّة والعمّ والخال وأسرهم</div>
+    </div>
+    <div class="cards">
+      <div class="card" style="--card-accent:#E8C97A">
+        <span class="card-orn">🌙</span>
+        <div class="card-name">جدّي وجدّتي</div>
+        <div class="card-sub">ينابيع الحنان والحكمة</div>
+        <div class="card-greeting">يا من تحملان من السنين ما تحملان ومن الخير والدعاء ما لا ينتهي، رمضان كريم عليكما يا أعزّ الناس بعد الوالدين.</div>
+        <div class="card-dua">اللهم أطِل في أعمارهما في صحّة وعافية، وتقبّل صيامهما ودعاءهما، وأكرمهما كما أكرمانا بالحنان.</div>
+      </div>
+      <div class="card" style="--card-accent:#E8C97A">
+        <span class="card-orn">🤝</span>
+        <div class="card-name">أعمامي وعمّاتي</div>
+        <div class="card-sub">أهل الكرم والعطاء</div>
+        <div class="card-greeting">كلّ عامٍ وأنتم بخير وعافية، يا من ربطتنا بهم أرحامٌ لا تنقطع. رمضان كريم على بيوتكم وأسركم الكريمة.</div>
+        <div class="card-dua">اللهم بارك في أرزاقهم وصحّتهم، واجعل هذا الشهر الكريم فرحاً وسعادةً وبركةً في حياتهم.</div>
+      </div>
+      <div class="card" style="--card-accent:#E8C97A">
+        <span class="card-orn">🌿</span>
+        <div class="card-name">أخوالي وخالاتي</div>
+        <div class="card-sub">من أحبّهم القلب دوماً</div>
+        <div class="card-greeting">الخال والدٌ ثانٍ والخالة أمٌّ ثانية. رمضان كريم عليكم يا من كبّرتم بالحنان وأعطيتم بلا حساب ولا انتظار.</div>
+        <div class="card-dua">اللهم اجزِهم خيراً على كلّ موقفٍ جميل، وارزقهم الصحة والبركة والسعادة في هذا الشهر المبارك وما بعده.</div>
+      </div>
+      <div class="card" style="--card-accent:#E8C97A">
+        <span class="card-orn">⭐</span>
+        <div class="card-name">أبناء العمومة والخؤولة</div>
+        <div class="card-sub">أصدقاء الرحم ورفاق الأعياد</div>
+        <div class="card-greeting">يا من شاركتنا الأعياد والذكريات، رمضان كريم عليكم يا أبناء العائلة الكبيرة. لا يكتمل فرح الشهر بدونكم.</div>
+        <div class="card-dua">اللهم اجمعنا على الخير وصِلة الرحم، وارزقنا التزاور والتواصل والمحبّة في كلّ أوقاتنا.</div>
+      </div>
+    </div>
+    <div class="shared-dua">
+      <div class="shared-dua-title">🤲 دعاء لصِلة الرحم</div>
+      <div class="shared-dua-text">اللهم اجمع شملنا بأقاربنا على الخير والمحبّة، واجعل أرحامنا موصولةً ومباركةً في الدنيا والآخرة.</div>
+    </div>
+  </div>
+
+ 
+  <div class="cat-panel" id="panel-family-far">
+    <div class="cat-header">
+      <span class="cat-icon">🌿</span>
+      <div class="cat-title">الأقارب البعيدون</div>
+      <div class="cat-desc">من يبعد عنّا المسافة ولا يبعد القلب أبداً</div>
+    </div>
+    <div class="cards">
+      <div class="card" style="--card-accent:#4CAF90">
+        <span class="card-orn">🌙</span>
+        <div class="card-name">الأقارب في البعيد</div>
+        <div class="card-sub">تجمعنا الرحم وإن تباعدت الديار</div>
+        <div class="card-greeting">رمضان كريم يا أحبّتنا في كلّ مكان. المسافة لا تفصل ما ربطته الأرحام والذكريات. نحمل ذكراكم في كلّ دعاءٍ وسجدة.</div>
+        <div class="card-dua">اللهم اجمعنا بأقاربنا البعيدين في خير وعافية، وبارك في كلّ أسرةٍ تنتظر رمضان هذا العام من قريبٍ أو بعيد.</div>
+      </div>
+      <div class="card" style="--card-accent:#4CAF90">
+        <span class="card-orn">✈️</span>
+        <div class="card-name">المغتربون والمسافرون</div>
+        <div class="card-sub">من حملوا قلوبنا معهم في السفر</div>
+        <div class="card-greeting">يا من شهرُ رمضان يُذكّرنا بك أكثر من أيّ وقتٍ مضى، كلّ عامٍ وأنت بخير. نتمنّى لك رمضاناً مباركاً ولو بعُدت الديار.</div>
+        <div class="card-dua">اللهم احفظ أقاربنا المسافرين وارزقهم الأمان والسلامة، وعجّل بعودتهم إلى أحضان أهلهم ووطنهم.</div>
+      </div>
+      <div class="card" style="--card-accent:#4CAF90">
+        <span class="card-orn">💫</span>
+        <div class="card-name">كلّ قريبٍ طال العهد</div>
+        <div class="card-sub">الذاكرة تُعيدهم دوماً</div>
+        <div class="card-greeting">ربّما مرّت سنواتٌ دون لقاء، لكنّ رمضان يُعيد كلّ ذكرى جميلة. رمضان كريم يا من لا تُمحى من الذاكرة.</div>
+        <div class="card-dua">اللهم وصِّل هذه التهنئة إلى قلوب أقاربنا البعيدين، واجمعنا بهم على خيرٍ في أقرب وقت.</div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="cat-panel" id="panel-friends">
+    <div class="cat-header">
+      <span class="cat-icon">🤝</span>
+      <div class="cat-title">الأصدقاء الأوفياء</div>
+      <div class="cat-desc">الصداقة الحقيقية نعمةٌ من الله لا تُقدَّر</div>
+    </div>
+    <div class="cards">
+      <div class="card" style="--card-accent:#5BA8D4">
+        <span class="card-orn">🌟</span>
+        <div class="card-name">صديقي المقرّب</div>
+        <div class="card-sub">من أسرّ إليه ما لا أسرّه لغيره</div>
+        <div class="card-greeting">يا من عرفتَ كيف تبقى في الأوقات الصعبة كما في السهلة، رمضان كريم عليك يا خير الأصدقاء. أسأل الله أن تُعاد علينا هذه السنين دوماً.</div>
+        <div class="card-dua">اللهم اجزِ صديقي خيراً على كلّ موقف، وبارك له في وقته وصحّته وأهله ورزقه في هذا الشهر وبعده.</div>
+      </div>
+      <div class="card" style="--card-accent:#5BA8D4">
+        <span class="card-orn">🪔</span>
+        <div class="card-name">رفاق العمر</div>
+        <div class="card-sub">من رافقوني في المحطّات الكبرى</div>
+        <div class="card-greeting">ما أجمل أن يمرّ رمضان وأنتم في الحياة يا أحبّتي. كلّ عامٍ وأنتم بخير، يا من تملؤون الأيّام فرحاً ومعنى.</div>
+        <div class="card-dua">اللهم احفظ أصدقاءنا وارزقهم الصحة والعافية والسعادة، واجعل مودّتنا خالصةً لوجهك الكريم.</div>
+      </div>
+      <div class="card" style="--card-accent:#5BA8D4">
+        <span class="card-orn">🤲</span>
+        <div class="card-name">الصديق الغائب</div>
+        <div class="card-sub">من تفرّقنا ولم يفترق القلب أبداً</div>
+        <div class="card-greeting">رمضان كريم يا صديقي. تذكّرتك في هذا الشهر كثيراً، وأرسلت هذه التهنئة لأقول: أنت لم تغِب عن بالي يوماً واحداً.</div>
+        <div class="card-dua">اللهم احفظ كلّ صديقٍ أحببته يوماً وإن بعُدت بيننا المسافات، وارزقنا لقاءً قريباً على خير وسلامة.</div>
+      </div>
+      <div class="card" style="--card-accent:#5BA8D4">
+        <span class="card-orn">✨</span>
+        <div class="card-name">الأصدقاء الجدد</div>
+        <div class="card-sub">من أضافوا بهجةً جديدة للحياة</div>
+        <div class="card-greeting">رمضان كريم يا من دخلتم حياتنا مؤخّراً وأضفتم إليها خيراً وبهجة. كلّ عامٍ وصداقتنا تكبر وتزداد عمقاً.</div>
+        <div class="card-dua">اللهم بارك في صداقتنا الجديدة، واجعلها صداقةً في الله تدوم وتُثمر خيراً في الدنيا والآخرة.</div>
+      </div>
+    </div>
+    <div class="shared-dua">
+      <div class="shared-dua-title">🤲 دعاء للأصدقاء</div>
+      <div class="shared-dua-text">اللهم اجعل في قلوب أصدقائنا محبّةً لنا كمحبّتنا لهم، وأدِم بيننا الودّ والصدق والوفاء.</div>
+    </div>
+  </div>
+
+  
+  <div class="cat-panel" id="panel-classmates">
+    <div class="cat-header">
+      <span class="cat-icon">📚</span>
+      <div class="cat-title">زملاء الدراسة</div>
+      <div class="cat-desc">من شاركوني بهجة طلب العلم وأيّامه الجميلة</div>
+    </div>
+    <div class="cards">
+      <div class="card" style="--card-accent:#A07AC9">
+        <span class="card-orn">📖</span>
+        <div class="card-name">زملاء المرحلة الابتدائية</div>
+        <div class="card-sub">رفاق أجمل أيّام البراءة</div>
+        <div class="card-greeting">رمضان كريم يا من جمعتنا تلك المقاعد الصغيرة ونحن نتعلّم الحروف والأرقام. تلك الأيّام لن تُنسى ما حيينا.</div>
+        <div class="card-dua">اللهم ارزق زملاء صباي الصحّةَ والسعادة، وبارك في مسيرة كلّ واحدٍ منهم أينما كان.</div>
+      </div>
+      <div class="card" style="--card-accent:#A07AC9">
+        <span class="card-orn">✏️</span>
+        <div class="card-name">زملاء المرحلة الثانوية</div>
+        <div class="card-sub">رفاق السنوات الذهبية</div>
+        <div class="card-greeting">ما أجمل تلك الأيّام حين كنّا نجلس جنباً إلى جنب نحلم بالمستقبل. رمضان كريم يا زملاء العمر الذهبي.</div>
+        <div class="card-dua">اللهم حقّق أمانيّ زملائي، وبارك في مسيرتهم، واجعل لكلٍّ منهم نصيباً وافراً من خيرات هذا الشهر.</div>
+      </div>
+      <div class="card" style="--card-accent:#A07AC9">
+        <span class="card-orn">🎓</span>
+        <div class="card-name">زملاء الجامعة</div>
+        <div class="card-sub">رفاق طموحات المستقبل الكبيرة</div>
+        <div class="card-greeting">رمضان كريم يا من تقاسمنا معهم أجمل أيّام الطموح والتعلّم والأحلام. لا تنسوا أنّ الدعاء في رمضان لا يُردّ.</div>
+        <div class="card-dua">اللهم اجعل هذا الشهر شهر توفيقٍ ونجاحٍ لكلّ طالبٍ يسعى في طريق العلم والمعرفة.</div>
+      </div>
+    </div>
+    <div class="shared-dua">
+      <div class="shared-dua-title">🤲 دعاء لطلاب العلم</div>
+      <div class="shared-dua-text">«اللهم انفعني بما علّمتني، وعلّمني ما ينفعني، وارزقني علماً ينفعني» — اللهم بارك في مسيرة كلّ طالبٍ مجتهد.</div>
+    </div>
+  </div>
+
+ 
+  <div class="cat-panel" id="panel-teachers">
+    <div class="cat-header">
+      <span class="cat-icon">🎓</span>
+      <div class="cat-title">المعلّمون والأساتذة</div>
+      <div class="cat-desc">من أضاؤوا عقولنا ولا يُنسى لهم الفضل أبداً</div>
+    </div>
+    <div class="cards">
+      <div class="card" style="--card-accent:#E8C97A">
+        <span class="card-orn">📖</span>
+        <div class="card-name">معلّمي الفاضل</div>
+        <div class="card-sub">من أشعل في عقلي نور المعرفة</div>
+        <div class="card-greeting">يا من أعطيتَ بلا ملل ورسمتَ للمستقبل طريقاً بأفعالك قبل كلماتك، رمضان كريم عليك أيّها المعلّم العظيم الكريم.</div>
+        <div class="card-dua">اللهم اجزِ معلّمي خير الجزاء على كلّ علمٍ نشره وكلّ طالبٍ أرشده، واجعل ذلك صدقةً جاريةً في ميزان حسناته.</div>
+      </div>
+      <div class="card" style="--card-accent:#E8C97A">
+        <span class="card-orn">🌙</span>
+        <div class="card-name">أستاذتي الكريمة</div>
+        <div class="card-sub">من كانت قدوةً بصبرها وعطائها</div>
+        <div class="card-greeting">تحيّة احترامٍ وتقديرٍ لا تنتهي. رمضان كريم عليكِ يا أستاذتي، ولا تحسبي أنّ تعبك وجهدك ذهبا هباءً منثوراً.</div>
+        <div class="card-dua">اللهم كافئي أستاذتي على صبرها وعطائها، وارزقها في هذا الشهر المبارك ما يُفرح قلبها ويُسعد بالها.</div>
+      </div>
+      <div class="card" style="--card-accent:#E8C97A">
+        <span class="card-orn">✨</span>
+        <div class="card-name">كلّ معلّمٍ علّمني يوماً</div>
+        <div class="card-sub">كلّ حرف تعلّمته له صاحب</div>
+        <div class="card-greeting">رمضان كريم على كلّ من وقف أمام الطلاب وحمل رسالة العلم بإخلاص وصبر. أنتم أصحاب أجرٍ لا ينقطع بإذن الله.</div>
+        <div class="card-dua">اللهم اجعل ما علّموه صدقةً جاريةً، وأكرمهم في الدنيا والآخرة كما أكرموا أجيالاً كاملة بنور العلم.</div>
+      </div>
+    </div>
+    <div class="shared-dua">
+      <div class="shared-dua-title">🤲 دعاء خاصّ للمعلّمين</div>
+      <div class="shared-dua-text">اللهم اجعل علمَ معلّمينا نوراً يضيء الأجيال، وبارك في أوقاتهم وأرزاقهم وذرّياتهم في هذا الشهر الكريم.</div>
+    </div>
+  </div>
+
+ 
+  <div class="cat-panel" id="panel-neighbors">
+    <div class="cat-header">
+      <span class="cat-icon">🕌</span>
+      <div class="cat-title">الجيران الكرام</div>
+      <div class="cat-desc">حقّهم عظيم وصحبتهم نعمة من الله</div>
+    </div>
+    <div class="cards">
+      <div class="card" style="--card-accent:#4CAF90">
+        <span class="card-orn">🌿</span>
+        <div class="card-name">جيران البيت</div>
+        <div class="card-sub">من يُطمئنّنا وجودهم ويسعدنا قربهم</div>
+        <div class="card-greeting">رمضان كريم يا أهل الجوار الكريم. قال النبيّ ﷺ «ما زال جبريل يوصيني بالجار». كلّ عامٍ وبيوتكم عامرةٌ بالخير والسعادة.</div>
+        <div class="card-dua">اللهم أسعد جيراننا في هذا الشهر، واجعل بيننا المحبّة والاحترام والتعاون، وادفع عنهم كلّ سوء وضر.</div>
+      </div>
+      <div class="card" style="--card-accent:#4CAF90">
+        <span class="card-orn">🕌</span>
+        <div class="card-name">جيران المسجد</div>
+        <div class="card-sub">من نلتقي بهم على طاعة الله</div>
+        <div class="card-greeting">رمضان كريم يا من نلتقي معهم في صفوف الصلاة ومجالس الذكر. أسأل الله أن يجمعنا دائماً على الخير والتراحم.</div>
+        <div class="card-dua">اللهم اجمعنا بجيراننا في مجالس الذكر في الدنيا وفي الجنّة، وأكرم بيوتنا بالبركة والسكينة والرحمة.</div>
+      </div>
+      <div class="card" style="--card-accent:#4CAF90">
+        <span class="card-orn">🌙</span>
+        <div class="card-name">الجار القديم</div>
+        <div class="card-sub">من ارتبطت بهم ذكريات لا تُنسى</div>
+        <div class="card-greeting">رمضان كريم يا جار العمر. لا يزال في القلب مكانٌ لك ولأسرتك، وإن تغيّرت الديار وتبدّلت الأحوال.</div>
+        <div class="card-dua">اللهم ارزق جيراننا القدامى والجدد السعادةَ والأمانَ والعافية، واجمعنا في هذا الشهر على الخير والمحبّة.</div>
+      </div>
+    </div>
+    <div class="shared-dua">
+      <div class="shared-dua-title">🤲 دعاء للجيران</div>
+      <div class="shared-dua-text">اللهم اجعل بيوتنا وبيوت جيراننا بيوت طمأنينةٍ وسكينةٍ ونور، وأدِم بيننا المودّةَ والخيرَ والاحترام.</div>
+    </div>
+  </div>
+
+
+</section>
+
+
+<footer>
+  <span class="orn">❁ ✦ ❁</span>
+  <p>رمضان كريم — شهر البركة والرحمة والمغفرة</p>
+  <p style="margin-top:8px;font-size:.85rem">«اللهم بلّغنا رمضان وتقبّل منا الصيام والقيام وصالح الأعمال»</p>
+  <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(201,168,76,0.15);display:flex;flex-direction:column;align-items:center;gap:6px;">
+    <span style="color:rgba(201,168,76,0.4);font-size:1rem;letter-spacing:0.1em;">✦</span>
+    <p style="font-family:'Amiri',serif;font-size:1rem;color:rgba(245,237,216,0.35);">صُمِّم بمحبّة بقلم</p>
+    <p style="font-family:'Amiri',serif;font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,#EDD98A,#C9A84C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 8px rgba(201,168,76,0.3));letter-spacing:0.05em;">
+      Chaima El Mnouar
+    </p>
+  </div>
+</footer>
+
+<script>
+
+(function(){
+  const c=document.getElementById('stars');
+  for(let i=0;i<200;i++){
+    const s=document.createElement('div');s.className='s';
+    const z=Math.random()*2.5+.4;
+    s.style.cssText=`width:${z}px;height:${z}px;top:${Math.random()*65}%;left:${Math.random()*100}%;--d:${Math.random()*3+1.5}s;animation-delay:${Math.random()*5}s`;
+    c.appendChild(s);
+  }
+})();
+
+
+function showCat(id){
+  document.querySelectorAll('.cat-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  const panel=document.getElementById('panel-'+id);
+  if(panel) panel.classList.add('active');
+  const btn=document.querySelector(`[data-cat="${id}"]`);
+  if(btn) btn.classList.add('active');
+  document.querySelector('.content').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>
